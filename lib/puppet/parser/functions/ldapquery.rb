@@ -31,14 +31,14 @@ Puppet::Parser::Functions.newfunction(:ldapquery,
   return PuppetX::LDAPquery.new(filter, attributes, base, scope, server).results
 end
 
-Puppet::Parser::Functons.newfunction(:update_ssh_key,
+Puppet::Parser::Functions.newfunction(:update_ssh_key,
                                      type: :rvalue) do |args|
   dn, public_key = args
   return PuppetX::LDAPquery.update_ssh_key(dn, public_key)
 
 end
 
-Puppet::Parser::Functons.newfunction(:delete_ssh_keys,
+Puppet::Parser::Functions.newfunction(:delete_ssh_keys,
                                      type: :rvalue) do |args|
   dn = args
   return PuppetX::LDAPquery.delete_ssh_keys(dn)
