@@ -8,7 +8,7 @@ module PuppetX
     attr_reader :content
 
     def initialize(
-      filter,
+      filter = '',
       attributes = [],
       base = Puppet[:ldapbase],
       scope = 'sub',
