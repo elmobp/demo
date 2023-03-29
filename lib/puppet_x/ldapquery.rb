@@ -130,6 +130,15 @@ module PuppetX
       ldap.modify :dn => dn, :operations => ops
     end
 
+    def delete_ssh_keys(dn)
+      conf = ldap_config
+      ops = [
+        :delete, :altSecurityIdentities, nil
+      ]
+      ldap = Net::LDAP.new(conf)
+      ldap.modify :dn => dn, :operations => ops
+    end
+
     def parse_entries
       data = []
       entries.each do |entry|

@@ -37,3 +37,10 @@ Puppet::Parser::Functons.newfunction(:update_ssh_key,
   return PuppetX::LDAPquery.update_ssh_key(dn, public_key)
 
 end
+
+Puppet::Parser::Functons.newfunction(:delete_ssh_keys,
+                                     type: :rvalue) do |args|
+  dn = args
+  return PuppetX::LDAPquery.delete_ssh_keys(dn)
+
+end
