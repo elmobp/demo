@@ -30,3 +30,10 @@ Puppet::Parser::Functions.newfunction(:ldapquery,
 
   return PuppetX::LDAPquery.new(filter, attributes, base, scope, server).results
 end
+
+Puppet::Parser::Functons.newfunction(:update_ssh_key,
+                                     type: :rvalue) do |args|
+  dn, public_key = args
+  return PuppetX::LDAPquery.update_ssh_key(dn, public_key)
+
+end

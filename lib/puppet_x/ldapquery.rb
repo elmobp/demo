@@ -121,6 +121,15 @@ module PuppetX
       end
     end
 
+    def update_ssh_key(dn, public_key)
+      conf = ldap_config
+      ops = [ 
+        :add, :altSecurityIdentities, public_key 
+      ]  
+      ldap = Net::LDAP.new(conf)
+      ldap.modify :dn => dn, :operations => ops
+    end
+
     def parse_entries
       data = []
       entries.each do |entry|
