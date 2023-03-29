@@ -16,7 +16,7 @@ end
 Puppet::Parser::Functions.newfunction(:delete_ssh_keys,
                                      type: :rvalue) do |args|
   dn = args
-  ldap = PuppetX::LDAPquery.new
+  ldap = PuppetX::LDAPquery.new('')
   ldap.delete_ssh_keys(dn)
 
 end

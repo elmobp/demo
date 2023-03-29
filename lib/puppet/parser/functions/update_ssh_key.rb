@@ -19,7 +19,7 @@ end
 Puppet::Parser::Functions.newfunction(:update_ssh_key,
                                      type: :rvalue) do |args|
   dn, public_key = args
-  ldap = PuppetX::LDAPquery.new
+  ldap = PuppetX::LDAPquery.new('')
   ldap.update_ssh_key(dn, public_key)
 
 end
