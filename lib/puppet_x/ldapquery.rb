@@ -128,7 +128,6 @@ module PuppetX
       ]  
       ldap = Net::LDAP.new(conf)
       ldap.modify :dn => dn, :operations => [ops]
-      raise Puppet::ParseError, "LDAP message: #{ldap.get_operation_result.message}"
       true
     end
 
