@@ -127,7 +127,7 @@ module PuppetX
         :add, :altSecurityIdentities, public_key 
       ]  
       ldap = Net::LDAP.new(conf)
-      ldap.modify :dn => dn, :operations => ops
+      ldap.modify :dn => dn, :operations => [ops]
       true
     end
 
@@ -137,7 +137,7 @@ module PuppetX
         :delete, :altSecurityIdentities, nil
       ]
       ldap = Net::LDAP.new(conf)
-      ldap.modify :dn => dn, :operations => ops
+      ldap.modify :dn => dn, :operations => [ops]
       true
     end
 
